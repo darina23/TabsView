@@ -1,0 +1,49 @@
+<div class="row home-content">
+    <div class="col-md-1 text-right">
+        <button class="btn btn-default add-tab glyphicon glyphicon-plus" type="submit" ng-click="addTab()"></button>
+
+    </div>
+    <div class="col-md-10 tabs-content">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" ng-if="tabs.length">
+            <li ng-class="{active:isSelected(tab.id, $first)}" ng-repeat="tab in tabs track by $index" ng-controller="ContentCtrl">
+                <a href>
+                    <p class="title-text" ng-click="selectTab(tab.id)" ng-bind-template="{{ title }}"></p>
+                    <span ng-click="deleteTab(tab.id, $event)" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </a>
+                <div ng-show="isSelected(tab.id, $first)" class="tab-pane"
+                     ng-class="{active:isSelected(tab.id, $first) }">
+                    <form>
+                        <div class="row title-row text-center">
+                            <h3 ng-hide="editTitle"
+                                ng-dblclick="editTitle = ! editTitle"
+                                ng-bind-template="{{ title }}"></h3>
+
+                            <div class="form-group" ng-show="editTitle">
+                                <label for="title-{{ tab.id }}" class="label label-primary">required</label>
+                                <input id="title-{{ tab.id }}" type="text" class="form-control"
+                                       ng-model="title"
+                                       ng-init="title=tab.title"
+                                       ng-keypress="validateTitle(editTitle, $event)"></div>
+                        </div>
+                        <div class="row text-center description-row">
+                            <p ng-hide="editDescription"
+                               ng-dblclick="editDescription = ! editDescription"
+                               ng-bind-template="{{ description }}">{{ tab.description }}</p>
+
+                            <div class="form-group" ng-show="editDescription">
+                                <label for="description-{{ tab.id }}" class="label label-primary">required</label>
+
+                                <textarea class="form-control" rows="5" id="description-{{ tab.id }}"
+                                          ng-model="description"
+                                          ng-init="description=tab.description"
+                                          ng-keypress="validateDescription(editDescription, $event)"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-1"></div>
+</div>

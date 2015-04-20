@@ -1,0 +1,110 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+/* custom css */
+.page-content {
+    padding: 1em;
+}
+
+.nav-tabs .glyphicon {
+    /*margin-right: -0.4em;*/
+    color: rgb(95, 94, 94);
+    font-size: 0.7em;
+    display: none;
+    float: right;
+}
+.nav-tabs .active .glyphicon {
+    display: inline;
+    cursor: pointer;
+}
+
+.tab-pane p {
+    cursor: pointer;
+}
+
+.tab-pane {
+    position: absolute;
+    padding: 1em;
+    left:0;
+    right:0;
+}
+.nav > li {
+  position: inherit;
+  display:inline-block;
+}
+
+.row > div {
+     padding-right: 5px;
+     padding-left: 5px;
+}
+
+.btn {
+    font-size: 20px;
+}
+.form-control {
+    width: 90%
+}
+
+.title-text {
+    max-width: 10em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float:left;
+}
+.nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.nav-tabs {
+    max-height: 47px;
+    padding-top: 4px;
+    overflow-y: auto;
+}
+
+.description-row p, .title-row h3 {
+    white-space: pre-line;
+    word-wrap: break-word;
+}
+
+.home-content {
+    padding-top: 1em;
+}
+
+body {
+    padding-left:1em;
+    padding-right:1em;
+}
+
+.add-tab {
+    margin-top: 3px;
+}
